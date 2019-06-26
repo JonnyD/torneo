@@ -35,6 +35,16 @@ class Game
      */
     private $name;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Platform", inversedBy="games")
+     */
+    private $platforms;
+
+    public function __construct()
+    {
+        $this->platforms = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -48,6 +58,32 @@ class Game
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Platform[]
+     */
+    public function getPlatforms(): Collection
+    {
+        return $this->platforms;
+    }
+
+    public function addPlatform(Platform $platform): self
+    {
+        if (!$this->platforms->contains($platform)) {
+            $this->platforms[] = $platform;
+        }
+
+        return $this;
+    }
+
+    public function removePlatform(Platform $platform): self
+    {
+        if ($this->platforms->contains($platform)) {
+            $this->platforms->removeElement($platform);
+        }
 
         return $this;
     }
