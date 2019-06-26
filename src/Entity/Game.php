@@ -8,7 +8,17 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={
+ *         "get",
+ *         "post"={"access_control"="is_granted('ROLE_SUPER_ADMIN')"}
+ *     },
+ *     itemOperations={
+ *         "get",
+ *         "put"={"access_control"="is_granted('ROLE_SUPER_ADMIN')"},
+ *         "delete"={"access_control"="is_granted('ROLE_SUPER_ADMIN')"}
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\GameRepository")
  */
 class Game
@@ -25,16 +35,6 @@ class Game
      */
     private $name;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\PlatformGame", mappedBy="game")
-     */
-    private $platformGames;
-
-    public function __construct()
-    {
-        $this->platformGames = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -48,37 +48,6 @@ class Game
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|PlatformGame[]
-     */
-    public function getPlatformGames(): Collection
-    {
-        return $this->platformGames;
-    }
-
-    public function addPlatformGame(PlatformGame $platformGame): self
-    {
-        if (!$this->platformGames->contains($platformGame)) {
-            $this->platformGames[] = $platformGame;
-            $platformGame->setGame($this);
-        }
-
-        return $this;
-    }
-
-    public function removePlatformGame(PlatformGame $platformGame): self
-    {
-        if ($this->platformGames->contains($platformGame)) {
-            $this->platformGames->removeElement($platformGame);
-            // set the owning side to null (unless already changed)
-            if ($platformGame->getGame() === $this) {
-                $platformGame->setGame(null);
-            }
-        }
 
         return $this;
     }
