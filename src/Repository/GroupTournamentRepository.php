@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\GlobalTournament;
+use App\Entity\GroupTournament;
 use App\Entity\Tournament;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method GlobalTournament|null find($id, $lockMode = null, $lockVersion = null)
- * @method GlobalTournament|null findOneBy(array $criteria, array $orderBy = null)
- * @method GlobalTournament[]    findAll()
- * @method GlobalTournament[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method GroupTournament|null find($id, $lockMode = null, $lockVersion = null)
+ * @method GroupTournament|null findOneBy(array $criteria, array $orderBy = null)
+ * @method GroupTournament[]    findAll()
+ * @method GroupTournament[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class GlobalTournamentRepository extends ServiceEntityRepository
+class GroupTournamentRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, GlobalTournament::class);
+        parent::__construct($registry, GroupTournament::class);
     }
 
     // /**
