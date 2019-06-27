@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommunityUserRepository")
+ * @ORM\Table(name="communities_users")
  */
 class CommunityUser
 {
@@ -22,13 +23,13 @@ class CommunityUser
     private $roles = [];
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Community", inversedBy="communiyUsers")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Community", inversedBy="communityUsers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $community;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="communiyUsers")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="communityUsers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

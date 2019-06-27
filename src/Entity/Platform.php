@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PlatformRepository")
+ * @ORM\Table(name="platforms")
  */
 class Platform
 {
@@ -27,6 +28,7 @@ class Platform
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="platforms")
+     * @ORM\JoinTable(name="games_platforms")
      */
     private $games;
 

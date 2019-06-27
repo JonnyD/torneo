@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\GroupTournamentRepository")
+ * @ORM\Table(name="group_tournaments")
  */
 class GroupTournament extends Tournament
 {

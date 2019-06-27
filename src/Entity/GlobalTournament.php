@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     shortName="Tournament",
  * )
  * @ORM\Entity(repositoryClass="App\Repository\GlobalTournamentRepository")
+ * @ORM\Table(name="global_tournaments")
  */
 class GlobalTournament extends Tournament
 {

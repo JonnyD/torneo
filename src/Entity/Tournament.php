@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "group" = "GroupTournament",
  *     "community" = "CommunityTournament"
  * })
+ * @ORM\Table(name="tournaments")
  */
 abstract class Tournament
 {

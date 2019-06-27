@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\GameRepository")
+ * @ORM\Table(name="games")
  */
 class Game
 {
@@ -53,6 +54,7 @@ class Game
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Group", mappedBy="games")
+     * @ORM\JoinTable(name="groups_games")
      */
     private $groups;
 
