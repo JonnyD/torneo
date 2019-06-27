@@ -11,7 +11,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     shortName="Tournament",
  * )
  * @ORM\Entity(repositoryClass="App\Repository\GlobalTournamentRepository")
- * @ORM\Table(name="global_tournaments")
  */
 class GlobalTournament extends Tournament
 {
@@ -25,9 +24,9 @@ class GlobalTournament extends Tournament
     /**
      * @var Date
      *
-     * @ORM\Column(name="scheduled_date_end", type="date", nullable=true)
+     * @ORM\Column(name="scheduled_end_date", type="date", nullable=true)
      */
-    private $scheduledDateEnd;
+    private $scheduledEndDate;
 
     /**
      * @var string
@@ -266,17 +265,17 @@ class GlobalTournament extends Tournament
     /**
      * @return Date
      */
-    public function getScheduledDateEnd(): Date
+    public function getScheduledEndDate(): Date
     {
-        return $this->scheduledDateEnd;
+        return $this->scheduledEndDate;
     }
 
     /**
-     * @param Date $scheduledDateEnd
+     * @param Date $scheduledEndDate
      */
-    public function setScheduledDateEnd(Date $scheduledDateEnd): void
+    public function setScheduledEndDate(Date $scheduledEndDate): void
     {
-        $this->scheduledDateEnd = $scheduledDateEnd;
+        $this->scheduledEndDate = $scheduledEndDate;
     }
 
     /**

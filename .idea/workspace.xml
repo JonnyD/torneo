@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf8531c7-2bc2-48f3-b7bb-f1e5ae29a381" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Repository/CommunityTournamentRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/GroupTournamentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TournamentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TournamentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/GlobalTournament.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GlobalTournament.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TournamentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GlobalTournamentRepository.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,31 +37,31 @@
         <counts>
           <entry key="env" value="2" />
           <entry key="pem" value="2" />
-          <entry key="php" value="69" />
+          <entry key="php" value="71" />
           <entry key="yaml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="2" />
-          <entry key="PHP" value="69" />
+          <entry key="PHP" value="71" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="YAML" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="1" />
+          <entry key="dummy" value="8" />
           <entry key="env" value="21" />
-          <entry key="php" value="1882" />
+          <entry key="php" value="2035" />
           <entry key="yaml" value="73" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="21" />
-          <entry key="PHP" value="1882" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PHP" value="2035" />
+          <entry key="PLAIN_TEXT" value="8" />
           <entry key="YAML" value="73" />
         </counts>
       </usages-collector>
@@ -71,15 +69,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190626184802.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190627122341.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,11 +78,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/GlobalTournament.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+            <state relative-caret-position="206">
+              <caret line="207" column="54" selection-start-line="207" selection-start-column="25" selection-end-line="207" selection-end-column="54" />
+              <folding>
+                <element signature="e#30#74#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190627134251.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="22" column="63" lean-forward="true" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Tournament.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
               <folding>
                 <element signature="e#30#74#0#PHP" expanded="true" />
               </folding>
@@ -138,22 +148,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Repository/TournamentRepository.php">
+        <entry file="file://$PROJECT_DIR$/src/Repository/GlobalTournamentRepository.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
               <folding>
                 <element signature="e#34#66#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -194,6 +195,12 @@
       <find>manytomany</find>
       <find>community_user</find>
       <find>platform_game</find>
+      <find>scheduled</find>
+      <find>scheduled_date_end</find>
+      <find>registration_closing_datetime</find>
+      <find>check_in</find>
+      <find>scheduled_da</find>
+      <find>registratiomn_refusal_message</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Jonny\Desktop\Workspace\php\torneo</dir>
@@ -244,6 +251,7 @@
         <option value="$PROJECT_DIR$/src/Repository/CommunityTournamentRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/TournamentRepository.php" />
         <option value="$PROJECT_DIR$/src/Entity/GlobalTournament.php" />
+        <option value="$PROJECT_DIR$/src/Migrations/Version20190627134251.php" />
       </list>
     </option>
   </component>
@@ -503,12 +511,12 @@
       <workItem from="1561635313824" duration="1772000" />
       <workItem from="1561637216824" duration="1771000" />
       <workItem from="1561639039549" duration="2186000" />
-      <workItem from="1561641998020" duration="552000" />
+      <workItem from="1561641998020" duration="1480000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22371000" />
+    <option name="totallyTimeSpent" value="23299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1548" height="832" extended-state="0" />
@@ -673,16 +681,6 @@
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190627121557.php" />
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190627113429.php" />
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190627113000.php" />
-    <entry file="file://$PROJECT_DIR$/src/Entity/Tournament.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="e#30#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/CommunityUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -797,7 +795,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/TournamentRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/Repository/GlobalTournamentRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
@@ -807,13 +805,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/GlobalTournament.php">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Tournament.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="311">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding>
             <element signature="e#30#74#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/GlobalTournament.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="207" column="54" selection-start-line="207" selection-start-column="25" selection-end-line="207" selection-end-column="54" />
+          <folding>
+            <element signature="e#30#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190627134251.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="22" column="63" lean-forward="true" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
         </state>
       </provider>
     </entry>
