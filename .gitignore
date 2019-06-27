@@ -1,4 +1,6 @@
-
+###> workspace files ###
+.idea
+###< workspace files ###
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
