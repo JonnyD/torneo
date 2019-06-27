@@ -28,16 +28,27 @@ abstract class Tournament
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min=2,
+     *     max=255
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *     min=2,
+     *     max=255
+     * )
      */
     private $fullName;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="tournaments")
+     * @Assert\NotBlank()
+     * @Assert\Valid()
      */
     private $game;
 

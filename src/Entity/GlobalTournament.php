@@ -9,28 +9,37 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ApiResource(
  *     shortName="Tournament",
+ *     collectionOperations={
+ *         "get",
+ *         "post"={"access_control"="is_granted('ROLE_USER')"}
+ *     },
+ *     itemOperations={
+ *         "get",
+ *         "put"={"access_control"="is_granted('ROLE_USER')"},
+ *         "delete"={"access_control"="is_granted('ROLE_USER')"}
+ *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\GlobalTournamentRepository")
  */
 class GlobalTournament extends Tournament
 {
     /**
-     * @var Date
+     * @var \DateTime
      *
-     * @ORM\Column(name="scheduled_start_date", type="date", nullable=true)
+     * @ORM\Column(name="scheduled_start_date", type="datetime", nullable=true)
      */
     private $scheduledStartDate;
 
     /**
-     * @var Date
+     * @var \DateTime
      *
-     * @ORM\Column(name="scheduled_end_date", type="date", nullable=true)
+     * @ORM\Column(name="scheduled_end_date", type="datetime", nullable=true)
      */
     private $scheduledEndDate;
 
     /**
      * @var string
-     * @Assert\NotBlank
+     * @Assert\NotBlank()
      * @ORM\Column(name="timezone", type="string", nullable=false)
      */
     private $timezone;
@@ -247,33 +256,33 @@ class GlobalTournament extends Tournament
     private $size;
 
     /**
-     * @return Date
+     * @return \DAteTime
      */
-    public function getScheduledStartDate(): Date
+    public function getScheduledStartDate(): ?\DAteTime
     {
         return $this->scheduledStartDate;
     }
 
     /**
-     * @param Date $scheduledStartDate
+     * @param \DAteTime $scheduledStartDate
      */
-    public function setScheduledStartDate(Date $scheduledStartDate): void
+    public function setScheduledStartDate(\DateTime $scheduledStartDate): void
     {
         $this->scheduledStartDate = $scheduledStartDate;
     }
 
     /**
-     * @return Date
+     * @return \DAteTime
      */
-    public function getScheduledEndDate(): Date
+    public function getScheduledEndDate(): ?\DateTime
     {
         return $this->scheduledEndDate;
     }
 
     /**
-     * @param Date $scheduledEndDate
+     * @param \DateTime $scheduledEndDate
      */
-    public function setScheduledEndDate(Date $scheduledEndDate): void
+    public function setScheduledEndDate(\DateTime $scheduledEndDate): void
     {
         $this->scheduledEndDate = $scheduledEndDate;
     }
@@ -409,7 +418,7 @@ class GlobalTournament extends Tournament
     /**
      * @return \DateTime
      */
-    public function getRegistrationClosingDatetime(): \DateTime
+    public function getRegistrationClosingDatetime(): ?\DateTime
     {
         return $this->registrationClosingDatetime;
     }
@@ -585,7 +594,7 @@ class GlobalTournament extends Tournament
     /**
      * @return bool
      */
-    public function isCheckInParticipantEnabled(): bool
+    public function isCheckInParticipantEnabled(): ?bool
     {
         return $this->checkInParticipantEnabled;
     }

@@ -27,17 +27,18 @@ class Group
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\GroupTournament", mappedBy="agroup")
+     * @ORM\OneToMany(targetEntity="App\Entity\GroupTournament", mappedBy="group")
      */
     private $tournaments;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Game", inversedBy="groups")
+     * @ORM\JoinTable(name="groups_games")
      */
     private $games;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\GroupUser", mappedBy="agroup")
+     * @ORM\OneToMany(targetEntity="App\Entity\GroupUser", mappedBy="group")
      */
     private $groupUsers;
 
@@ -77,7 +78,7 @@ class Group
     {
         if (!$this->tournaments->contains($tournament)) {
             $this->tournaments[] = $tournament;
-            $tournament->setAgroup($this);
+            $tournament->setGroup($this);
         }
 
         return $this;
@@ -88,8 +89,8 @@ class Group
         if ($this->tournaments->contains($tournament)) {
             $this->tournaments->removeElement($tournament);
             // set the owning side to null (unless already changed)
-            if ($tournament->getAgroup() === $this) {
-                $tournament->setAgroup(null);
+            if ($tournament->getGroup() === $this) {
+                $tournament->setGroup(null);
             }
         }
 
@@ -134,7 +135,7 @@ class Group
     {
         if (!$this->groupUsers->contains($groupUser)) {
             $this->groupUsers[] = $groupUser;
-            $groupUser->setAgroup($this);
+            $groupUser->setGroup($this);
         }
 
         return $this;
@@ -145,8 +146,8 @@ class Group
         if ($this->groupUsers->contains($groupUser)) {
             $this->groupUsers->removeElement($groupUser);
             // set the owning side to null (unless already changed)
-            if ($groupUser->getAgroup() === $this) {
-                $groupUser->setAgroup(null);
+            if ($groupUser->getGroup() === $this) {
+                $groupUser->setGroup(null);
             }
         }
 

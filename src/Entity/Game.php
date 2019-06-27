@@ -34,11 +34,17 @@ class Game
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min=2,
+     *     max=255
+     * )
      */
     private $name;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Platform", inversedBy="games")
+     * @ORM\JoinTable(name="games_platforms")
      */
     private $platforms;
 

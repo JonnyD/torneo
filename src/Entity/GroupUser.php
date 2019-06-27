@@ -21,7 +21,7 @@ class GroupUser
      * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="groupUsers")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $agroup;
+    private $group;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="groupUsers")
@@ -39,14 +39,14 @@ class GroupUser
         return $this->id;
     }
 
-    public function getAgroup(): ?Group
+    public function getgroup(): ?Group
     {
-        return $this->agroup;
+        return $this->group;
     }
 
-    public function setAgroup(?Group $agroup): self
+    public function setGroup(?Group $group): self
     {
-        $this->agroup = $agroup;
+        $this->group = $group;
 
         return $this;
     }

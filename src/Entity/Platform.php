@@ -28,7 +28,6 @@ class Platform
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="platforms")
-     * @ORM\JoinTable(name="games_platforms")
      */
     private $games;
 

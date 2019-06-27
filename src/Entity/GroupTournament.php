@@ -17,16 +17,16 @@ class GroupTournament extends Tournament
      * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="tournaments")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $agroup;
+    private $group;
 
-    public function getAgroup(): ?Group
+    public function getGroup(): ?Group
     {
-        return $this->agroup;
+        return $this->group;
     }
 
-    public function setAgroup(?Group $agroup): self
+    public function setGroup(Group $group): self
     {
-        $this->agroup = $agroup;
+        $this->group = $group;
 
         return $this;
     }
