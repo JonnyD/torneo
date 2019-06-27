@@ -60,9 +60,15 @@ class User implements UserInterface
      */
     private $communityUsers;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\GroupUser", mappedBy="user")
+     */
+    private $groupUsers;
+
     public function __construct()
     {
         $this->communityUsers = new ArrayCollection();
+        $this->groupUsers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -192,6 +198,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($communityUser->getUser() === $this) {
                 $communityUser->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GroupUser[]
+     */
+    public function getGroupUsers(): Collection
+    {
+        return $this->groupUsers;
+    }
+
+    public function addGroupUser(GroupUser $groupUser): self
+    {
+        if (!$this->groupUsers->contains($groupUser)) {
+            $this->groupUsers[] = $groupUser;
+            $groupUser->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroupUser(GroupUser $groupUser): self
+    {
+        if ($this->groupUsers->contains($groupUser)) {
+            $this->groupUsers->removeElement($groupUser);
+            // set the owning side to null (unless already changed)
+            if ($groupUser->getUser() === $this) {
+                $groupUser->setUser(null);
             }
         }
 
