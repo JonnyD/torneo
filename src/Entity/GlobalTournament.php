@@ -7,7 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     shortName="Tournament",
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\GlobalTournamentRepository")
  */
 class GlobalTournament extends Tournament

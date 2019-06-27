@@ -12,5 +12,21 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class CommunityTournament extends Tournament
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Community", inversedBy="tournaments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $community;
 
+    public function getCommunity(): ?Community
+    {
+        return $this->community;
+    }
+
+    public function setCommunity(?Community $community): self
+    {
+        $this->community = $community;
+
+        return $this;
+    }
 }

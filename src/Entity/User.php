@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -52,6 +54,16 @@ class User implements UserInterface
      * @Assert\NotBlank())
      */
     private $lastName;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\CommunityUser", mappedBy="user")
+     */
+    private $communityUsers;
+
+    public function __construct()
+    {
+        $this->communityUsers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -151,6 +163,37 @@ class User implements UserInterface
     public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CommunityUser[]
+     */
+    public function getCommunityUsers(): Collection
+    {
+        return $this->communityUsers;
+    }
+
+    public function addCommunityUser(CommunityUser $communityUser): self
+    {
+        if (!$this->communityUsers->contains($communityUser)) {
+            $this->communityUsers[] = $communityUser;
+            $communityUser->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommunityUser(CommunityUser $communityUser): self
+    {
+        if ($this->communityUsers->contains($communityUser)) {
+            $this->communityUsers->removeElement($communityUser);
+            // set the owning side to null (unless already changed)
+            if ($communityUser->getUser() === $this) {
+                $communityUser->setUser(null);
+            }
+        }
 
         return $this;
     }

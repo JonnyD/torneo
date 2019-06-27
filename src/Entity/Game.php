@@ -46,10 +46,16 @@ class Game
      */
     private $tournaments;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Community", mappedBy="Game")
+     */
+    private $communities;
+
     public function __construct()
     {
         $this->platforms = new ArrayCollection();
         $this->tournaments = new ArrayCollection();
+        $this->communities = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -120,6 +126,37 @@ class Game
             // set the owning side to null (unless already changed)
             if ($tournament->getGame() === $this) {
                 $tournament->setGame(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Community[]
+     */
+    public function getCommunities(): Collection
+    {
+        return $this->communities;
+    }
+
+    public function addCommunity(Community $community): self
+    {
+        if (!$this->communities->contains($community)) {
+            $this->communities[] = $community;
+            $community->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommunity(Community $community): self
+    {
+        if ($this->communities->contains($community)) {
+            $this->communities->removeElement($community);
+            // set the owning side to null (unless already changed)
+            if ($community->getGame() === $this) {
+                $community->setGame(null);
             }
         }
 
