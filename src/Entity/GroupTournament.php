@@ -12,15 +12,21 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class GroupTournament extends Tournament
 {
-    private $test = 'test';
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="tournaments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $agroup;
 
-    public function getText()
+    public function getAgroup(): ?Group
     {
-        return $this->test;
+        return $this->agroup;
     }
 
-    public function setTest($test)
+    public function setAgroup(?Group $agroup): self
     {
-        $this->test = $test;
+        $this->agroup = $agroup;
+
+        return $this;
     }
 }

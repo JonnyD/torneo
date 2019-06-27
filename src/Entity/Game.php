@@ -51,11 +51,17 @@ class Game
      */
     private $communities;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Group", mappedBy="games")
+     */
+    private $groups;
+
     public function __construct()
     {
         $this->platforms = new ArrayCollection();
         $this->tournaments = new ArrayCollection();
         $this->communities = new ArrayCollection();
+        $this->groups = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -158,6 +164,34 @@ class Game
             if ($community->getGame() === $this) {
                 $community->setGame(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Group[]
+     */
+    public function getGroups(): Collection
+    {
+        return $this->groups;
+    }
+
+    public function addGroup(Group $group): self
+    {
+        if (!$this->groups->contains($group)) {
+            $this->groups[] = $group;
+            $group->addGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroup(Group $group): self
+    {
+        if ($this->groups->contains($group)) {
+            $this->groups->removeElement($group);
+            $group->removeGame($this);
         }
 
         return $this;
