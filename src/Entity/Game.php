@@ -40,9 +40,15 @@ class Game
      */
     private $platforms;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Tournament", mappedBy="game")
+     */
+    private $tournaments;
+
     public function __construct()
     {
         $this->platforms = new ArrayCollection();
+        $this->tournaments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -83,6 +89,37 @@ class Game
     {
         if ($this->platforms->contains($platform)) {
             $this->platforms->removeElement($platform);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tournament[]
+     */
+    public function getTournaments(): Collection
+    {
+        return $this->tournaments;
+    }
+
+    public function addTournament(Tournament $tournament): self
+    {
+        if (!$this->tournaments->contains($tournament)) {
+            $this->tournaments[] = $tournament;
+            $tournament->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTournament(Tournament $tournament): self
+    {
+        if ($this->tournaments->contains($tournament)) {
+            $this->tournaments->removeElement($tournament);
+            // set the owning side to null (unless already changed)
+            if ($tournament->getGame() === $this) {
+                $tournament->setGame(null);
+            }
         }
 
         return $this;

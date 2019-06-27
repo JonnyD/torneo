@@ -183,6 +183,11 @@ class Tournament
      */
     private $size;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="tournaments")
+     */
+    private $game;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -580,6 +585,18 @@ class Tournament
     public function setSize(int $size): self
     {
         $this->size = $size;
+
+        return $this;
+    }
+
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): self
+    {
+        $this->game = $game;
 
         return $this;
     }
