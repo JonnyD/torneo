@@ -221,7 +221,7 @@ class GlobalTournament extends Tournament
     /**
      * @var string
      *
-     * @Assert\NotBlank
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="participant_type", type="string", nullable=false)
      */
@@ -250,6 +250,8 @@ class GlobalTournament extends Tournament
 
     /**
      * @var int $number
+     *
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="size", type="integer", nullable=false)
      */
